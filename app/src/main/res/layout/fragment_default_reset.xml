@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/background_light"
+    tools:context=".navigationItemFragments.FavoriteDishesFragment">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/defaultResetToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <!-- TODO: Update blank fragment layout -->
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@android:color/background_light"
+             android:paddingLeft="10dp"
+             android:paddingRight="10dp"
+             android:paddingTop="30dp"
+             android:text="  На этом экране пока не отображаются данные. Ожидается уточнение ТЗ."
+             android:textColor="@android:color/black"
+             android:textSize="18sp" />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+</FrameLayout>

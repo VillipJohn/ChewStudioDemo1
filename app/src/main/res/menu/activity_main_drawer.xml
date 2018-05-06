@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+   <!-- <group android:checkableBehavior="single">-->
+    <group>
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_menu_user_settings_light"
+            android:title="Настройки пользователя" />
+        <item
+            android:id="@+id/nav_favorite_dishes"
+            android:icon="@drawable/ic_menu_favorite"
+            android:title= "Любимые блюда" />
+        <item
+            android:id="@+id/nav_about_app"
+            android:icon="@drawable/ic_menu_about_app"
+            android:title="О программе" />
+        <item
+            android:id="@+id/nav_sounds"
+            android:icon="@drawable/ic_menu_music"
+            android:title="Звуки и уведомления" />
+        <item
+            android:id="@+id/nav_default_reset"
+            android:icon="@drawable/ic_menu_refresh"
+            android:title="Сброс по умолчанию" />
+
+    </group>
+
+    <!--<item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>-->
+
+</menu>
