@@ -1,6 +1,5 @@
 package com.sauno.androiddeveloper.chewstudiodemo.adapter;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,9 +9,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.sauno.androiddeveloper.chewstudiodemo.ListDishesActivity;
 import com.sauno.androiddeveloper.chewstudiodemo.R;
 import com.sauno.androiddeveloper.chewstudiodemo.data.DatabaseCreateHelper;
 import com.sauno.androiddeveloper.chewstudiodemo.data.DishDBHelper;
@@ -20,6 +24,8 @@ import com.sauno.androiddeveloper.chewstudiodemo.data.DishDBHelper;
 public class ListDishesAdapter extends RecyclerView.Adapter<ListDishesAdapter.ViewHolder> {
 
     private String[] mDataset;
+
+    boolean[] checked;
 
     private SharedPreferences mSharedPreferences;
 
@@ -32,49 +38,85 @@ public class ListDishesAdapter extends RecyclerView.Adapter<ListDishesAdapter.Vi
     private float countFats;
     private float countCarbohydrates;
 
-        // Provide a reference to the views for each data item
-        // Complex data items may need more than one view per item, and
-        // you provide access to all the views for a data item in a view holder
-        public static class ViewHolder extends RecyclerView.ViewHolder {
-            public final View mView;
-            // each data item is just a string in this case
-            public TextView mTextView;
-            public ViewHolder(View view) {
-                super(view);
-                mView = view;
+    // Provide a reference to the views for each data item
+    // Complex data items may need more than one view per item, and
+    // you provide access to all the views for a data item in a view holder
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        //public final View mView;
+        // each data item is just a string in this case
+        public TextView mDishTextView;
+        public CheckBox mDishCheckBox;
+        public ImageView mDishImageView;
 
-                mTextView = view.findViewById(R.id.content);
-            }
+        public ViewHolder(View view) {
+            super(view);
+            //mView = view;
+            mDishTextView = view.findViewById(R.id.dishTextView);
+            mDishCheckBox = view.findViewById(R.id.dishCheckBox);
+            mDishImageView = view.findViewById(R.id.dishImageView);
         }
 
-        // Provide a suitable constructor (depends on the kind of dataset)
-        public ListDishesAdapter(String[] myDataset) {
-            mDataset = myDataset;
-        }
+    }
 
-        // Create new views (invoked by the layout manager)
-        @Override
-        public ListDishesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                       int viewType) {
-            // create a new view
-            View view = LayoutInflater.from(parent.getContext())
+    // Provide a suitable constructor (depends on the kind of dataset)
+    public ListDishesAdapter(String[] dataset) {
+        mDataset = dataset;
+        checked = new boolean[dataset.length];
+    }
+
+    // Create new views (invoked by the layout manager)
+    @Override
+    public ListDishesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // create a new view
+        View view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.dish_item, parent, false);
 
-            ViewHolder vh = new ViewHolder(view);
-            return vh;
-        }
+        ViewHolder vh = new ViewHolder(view);
+        return vh;
+    }
 
-        // Replace the contents of a view (invoked by the layout manager)
-        @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-            // - get element from your dataset at this position
-            // - replace the contents of the view with that element
-            holder.mTextView.setText(mDataset[position]);
+    // Replace the contents of a view (invoked by the layout manager)
+    @Override
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        // - get element from your dataset at this position
+        // - replace the contents of the view with that element
+
+        AlphaAnimation blinkanimation= new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
+        blinkanimation.setDuration(300); // duration
+        blinkanimation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
+        blinkanimation.setRepeatCount(1000); // Repeat animation infinitely
+        blinkanimation.setRepeatMode(Animation.REVERSE);
+
+        holder.mDishImageView.setAnimation(blinkanimation);
+
+
+
+        holder.mDishTextView.setText(mDataset[position]);
+
+        holder.mDishCheckBox.setChecked(checked[position]);
+        holder.mDishCheckBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checked[position] = !checked[position];
+
+                String text = mDataset[position];
+                Toast.makeText(view.getContext(), text, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        holder.mDishCheckBox.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                String text = mDataset[position] + "LONG CLICK";
+                Toast.makeText(view.getContext(), text, Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
 
             //final String category = mDataset[position];
             dishName = mDataset[position];
 
-            holder.mView.setOnClickListener(new View.OnClickListener() {
+            /*holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     databaseCreateHelper = new DatabaseCreateHelper(v.getContext());
@@ -87,52 +129,56 @@ public class ListDishesAdapter extends RecyclerView.Adapter<ListDishesAdapter.Vi
                     ((ListDishesActivity)v.getContext()).finish();
 
 
-                   /* Intent intent = new Intent(v.getContext(), UserPreferencesActivity.class);
+                   *//* Intent intent = new Intent(v.getContext(), UserPreferencesActivity.class);
                     intent.putExtra("category", category);
-                    v.getContext().startActivity(intent);*/
+                    v.getContext().startActivity(intent);*//*
+                }
+            });*/
+
+            /*holder.mDishCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+
                 }
             });
+*/
+    }
 
-        }
-
-        // Return the size of your dataset (invoked by the layout manager)
-        @Override
-        public int getItemCount() {
+    // Return the size of your dataset (invoked by the layout manager)
+    @Override
+    public int getItemCount() {
             return mDataset.length;
-        }
+    }
 
-        private void setChange() {
-            int countChosenDishes = mSharedPreferences.getInt("CountChosenDishes", 0);
-            float countCaloriesSP = mSharedPreferences.getFloat("CountCalories", 0f);
-            float countProteinsSP = mSharedPreferences.getFloat("CountProteins", 0f);
-            float countFatsSP = mSharedPreferences.getFloat("CountFats", 0f);
-            float countCarbohydratesSP = mSharedPreferences.getFloat("CountCarbohydrates", 0f);
+    private void setChange() {
+        int countChosenDishes = mSharedPreferences.getInt("CountChosenDishes", 0);
+        float countCaloriesSP = mSharedPreferences.getFloat("CountCalories", 0f);
+        float countProteinsSP = mSharedPreferences.getFloat("CountProteins", 0f);
+        float countFatsSP = mSharedPreferences.getFloat("CountFats", 0f);
+        float countCarbohydratesSP = mSharedPreferences.getFloat("CountCarbohydrates", 0f);
 
-            countChosenDishes++;
-            countCalories = countCalories + countCaloriesSP;
-            countProteins = countProteins + countProteinsSP;
-            countFats = countFats + countFatsSP;
-            countCarbohydrates = countCarbohydrates + countCarbohydratesSP;
+        countChosenDishes++;
+        countCalories = countCalories + countCaloriesSP;
+        countProteins = countProteins + countProteinsSP;
+        countFats = countFats + countFatsSP;
+        countCarbohydrates = countCarbohydrates + countCarbohydratesSP;
 
-            Log.i("MyLog", "countCalories = " + countCalories);
-            Log.i("MyLog", "countProteins = " + countProteins);
-            Log.i("MyLog", "countFats = " + countFats);
-            Log.i("MyLog", "countCarbohydrates = " + countCarbohydrates);
+        Log.i("MyLog", "countCalories = " + countCalories);
+        Log.i("MyLog", "countProteins = " + countProteins);
+        Log.i("MyLog", "countFats = " + countFats);
+        Log.i("MyLog", "countCarbohydrates = " + countCarbohydrates);
 
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
 
-            SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putInt("CountChosenDishes", countChosenDishes);
+        editor.putFloat("CountCalories", countCalories);
+        editor.putFloat("CountProteins", countProteins);
+        editor.putFloat("CountFats", countFats);
+        editor.putFloat("CountCarbohydrates", countCarbohydrates);
 
-            editor.putInt("CountChosenDishes", countChosenDishes);
-            editor.putFloat("CountCalories", countCalories);
-            editor.putFloat("CountProteins", countProteins);
-            editor.putFloat("CountFats", countFats);
-            editor.putFloat("CountCarbohydrates", countCarbohydrates);
+        editor.apply();
 
-
-            editor.apply();
-
-
-        }
+    }
 
     private void getDataFromDB() {
 

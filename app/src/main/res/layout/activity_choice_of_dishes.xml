@@ -16,7 +16,7 @@
         android:layout_marginRight="6dp"
         android:layout_marginTop="5dp"
         android:layout_weight="1"
-        android:text="Выбрать блюда по вашим особенностям" />
+        android:text="Блюда по вашим особенностям" />
 
     <Button
         android:id="@+id/listOfRestaurantsButton"
@@ -25,7 +25,7 @@
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp"
         android:layout_weight="1"
-        android:text="Выбрать любимые блюда" />
+        android:text="Любимые блюда" />
 
     <View
         android:layout_width="match_parent"
@@ -132,7 +132,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Жири" />
+                android:text="Жиры" />
 
             <TextView
                 android:id="@+id/countFatsTextView"

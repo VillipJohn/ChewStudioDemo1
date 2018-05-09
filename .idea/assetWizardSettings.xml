@@ -33,9 +33,9 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="outputName" value="star_green" />
+                                      <entry key="outputName" value="star_yellow" />
                                       <entry key="theme" value="CUSTOM" />
-                                      <entry key="themeColor" value="31e500" />
+                                      <entry key="themeColor" value="e1e500" />
                                     </map>
                                   </option>
                                 </PersistentState>
