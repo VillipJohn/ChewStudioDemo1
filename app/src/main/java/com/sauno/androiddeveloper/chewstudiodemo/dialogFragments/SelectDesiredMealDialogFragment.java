@@ -11,7 +11,7 @@ import android.widget.Button;
 
 import com.sauno.androiddeveloper.chewstudiodemo.R;
 
-public class ChooseDesiredMealDialogFragment extends DialogFragment {
+public class SelectDesiredMealDialogFragment extends DialogFragment {
 
     @NonNull
     @Override
@@ -42,7 +42,7 @@ public class ChooseDesiredMealDialogFragment extends DialogFragment {
                             public void onClick(DialogInterface dialog,
                                                 int item) {
                                 Resources res = getResources();
-                                String[] desiredMealArray = res.getStringArray(R.array.desired_meal_array);
+                                String[] desiredMealArray = res.getStringArray(R.array.five_meals_array);
 
                                 mRecommendedMealButton.setText(desiredMealArray[item]);
 

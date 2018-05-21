@@ -17,6 +17,17 @@ public class DishDBHelper extends SQLiteOpenHelper{
     public static final String COLUMN_PROTEINS = "Proteins";
     public static final String COLUMN_FATS = "Fats";
     public static final String COLUMN_CARBS = "Carbs";
+    public static final String COLUMN_COMPATIBILITY_1 = "Compatibility_1";
+    public static final String COLUMN_COMPATIBILITY_2 = "Compatibility_2";
+    public static final String COLUMN_COMPATIBILITY_3 = "Compatibility_3";
+    public static final String COLUMN_COMPATIBILITY_4 = "Compatibility_4";
+    public static final String COLUMN_COMPATIBILITY_5 = "Compatibility_5";
+    public static final String COLUMN_COMPATIBILITY_6 = "Compatibility_6";
+    public static final String COLUMN_COMPATIBILITY_7 = "Compatibility_7";
+    public static final String COLUMN_GLOBAL_CATEGORY = "Ingreds_1";
+    public static final String COLUMN_RESTAURANT = "Restaurant";
+
+
 
     public DishDBHelper(Context context) {
         super (context, DB_NAME, null, SCHEMA);

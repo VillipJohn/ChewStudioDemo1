@@ -87,6 +87,7 @@ public class UserPreferencesActivity extends AppCompatPreferenceActivity {
         bindPreferenceSummaryToValue(findPreference("userBloodGroupPref"));
         bindPreferenceSummaryToValue(findPreference("userMethodOfNutritionPref"));
         bindPreferenceSummaryToValue(findPreference("userTypeOfFoodPref"));
+        bindPreferenceSummaryToValue(findPreference("userCompatibilityTypeOfFoodPref"));
         bindPreferenceSummaryToValue(findPreference("userCharacteristicOnePref"));
         bindPreferenceSummaryToValue(findPreference("userCharacteristicTwoPref"));
         bindPreferenceSummaryToValue(findPreference("userCharacteristicThreePref"));

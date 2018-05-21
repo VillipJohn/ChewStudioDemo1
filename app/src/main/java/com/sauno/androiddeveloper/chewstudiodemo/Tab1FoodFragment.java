@@ -1,17 +1,16 @@
 package com.sauno.androiddeveloper.chewstudiodemo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.sauno.androiddeveloper.chewstudiodemo.dialogFragments.ChooseDesiredMealDialogFragment;
-import com.sauno.androiddeveloper.chewstudiodemo.dialogFragments.ChooseRestaurantFromListDialogFragment;
+import com.sauno.androiddeveloper.chewstudiodemo.dialogFragments.SelectRestaurantFromListDialogFragment;
 
 import java.util.Calendar;
 
@@ -36,12 +35,30 @@ public class Tab1FoodFragment extends Fragment{
 
         determineCurrentMeal();
 
+        mHomeMenuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Crashlytics.getInstance().crash();
+            }
+        });
+
 
         mRecommendedMealButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ChooseDesiredMealDialogFragment mChooseDesiredMealDialogFragment = new ChooseDesiredMealDialogFragment();
-                mChooseDesiredMealDialogFragment.show(getActivity().getSupportFragmentManager(), "dialogChooseDesiredMeal");
+               /* SelectDesiredMealDialogFragment mChooseDesiredMealDialogFragment = new SelectDesiredMealDialogFragment();
+                mChooseDesiredMealDialogFragment.show(getActivity().getSupportFragmentManager(), "dialogChooseDesiredMeal");*/
+
+                /*FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                SelectDesiredMealFragment fragment = new SelectDesiredMealFragment();
+                fragmentTransaction.add(R.id.drawer_layout, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();*/
+
+                Intent intent = new Intent(getActivity(), SelectDesiredMealActivity.class);
+                getActivity().startActivity(intent);
             }
         });
 
@@ -49,7 +66,7 @@ public class Tab1FoodFragment extends Fragment{
             @Override
             public void onClick(View view) {
 
-                ChooseRestaurantFromListDialogFragment mChooseRestaurantFromListDialogFragment = new ChooseRestaurantFromListDialogFragment();
+                SelectRestaurantFromListDialogFragment mChooseRestaurantFromListDialogFragment = new SelectRestaurantFromListDialogFragment();
                 mChooseRestaurantFromListDialogFragment.show(getActivity().getSupportFragmentManager(), "dialogChooseRestaurantFromList");
                 /*Intent intent = new Intent(getActivity(), FakeActivity.class);
                 startActivity(intent);*/
@@ -84,42 +101,50 @@ public class Tab1FoodFragment extends Fragment{
     }
 
     private void determineCurrentMeal() {
-        //long time= System.currentTimeMillis();
+        SharedPreferences mSharedPreferences = getActivity().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        Boolean threeOrFiveMeals = mSharedPreferences.getBoolean("threeOrFiveMeals", false);
 
-        String[] desiredMealArray = getResources().getStringArray(R.array.desired_meal_array);
+        String[] fiveMealsArray = getResources().getStringArray(R.array.five_meals_array);
+        String[] threeMealsArray = getResources().getStringArray(R.array.three_meals_array);
 
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR);
         int am = calendar.get(Calendar.AM_PM);
-        int minutes = calendar.get(Calendar.MINUTE);
+        //int minutes = calendar.get(Calendar.MINUTE);
 
-        Log.i("MyLog", "Часов - " + hour + "   Минут - " + minutes + "   AM - " + am);
+        //Log.i("MyLog", "Часов - " + hour + "   Минут - " + minutes + "   AM - " + am);
 
         if(am == 1) {
             hour = hour + 12;
         }
 
-        if(hour >= 6 && hour < 8) {
-            mRecommendedMealButton.setText(desiredMealArray[0]);
-        } else if(hour >= 8 && hour < 11) {
-            mRecommendedMealButton.setText(desiredMealArray[1]);
-        } else if(hour >= 11 && hour < 14) {
-            mRecommendedMealButton.setText(desiredMealArray[2]);
-        } else if(hour >= 14 && hour < 17) {
-            mRecommendedMealButton.setText(desiredMealArray[3]);
-        } else if(hour >= 17 && hour < 20) {
-            mRecommendedMealButton.setText(desiredMealArray[4]);
+        if(threeOrFiveMeals) {
+            if(hour >= 6 && hour < 8) {
+                mRecommendedMealButton.setText(fiveMealsArray[0]);
+            } else if(hour >= 8 && hour < 11) {
+                mRecommendedMealButton.setText(fiveMealsArray[1]);
+            } else if(hour >= 11 && hour < 14) {
+                mRecommendedMealButton.setText(fiveMealsArray[2]);
+            } else if(hour >= 14 && hour < 17) {
+                mRecommendedMealButton.setText(fiveMealsArray[3]);
+            } else if(hour >= 17 && hour < 20) {
+                mRecommendedMealButton.setText(fiveMealsArray[4]);
+            } else {
+                mRecommendedMealButton.setText(fiveMealsArray[5]);
+            }
         } else {
-            mRecommendedMealButton.setText(desiredMealArray[5]);
+            if(hour >= 6 && hour < 11) {
+                mRecommendedMealButton.setText(threeMealsArray[0]);
+            } else if(hour >= 11 && hour < 17) {
+                mRecommendedMealButton.setText(threeMealsArray[1]);
+            } else if(hour >= 17 && hour < 21) {
+                mRecommendedMealButton.setText(threeMealsArray[2]);
+            } else {
+                mRecommendedMealButton.setText("---");
+            }
         }
-/*
-        6.00-8.00 - завтрак(25%)
-        8.00-11.00 - первый перекус(5%)
 
-        11.00-14.00 - обед(30%)
-        14.00-17.00 - второй перекус(5%)
-        17.00-20.00 - ужин(25%)
-        20.00-6.00 - третий перекус(10%)*/
+
 
     }
 }

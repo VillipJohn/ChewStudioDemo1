@@ -28,8 +28,6 @@ public class DatabaseCreateHelper extends SQLiteOpenHelper {
         //DB_PATH =context.getFilesDir().getPath() + DB_NAME;
 
         DB_PATH = myContext.getDatabasePath(DB_NAME).getAbsolutePath();
-
-        Log.i("MyLog", DB_PATH);
     }
 
     @Override

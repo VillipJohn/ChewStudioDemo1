@@ -47,7 +47,10 @@ public class ChoiceOfDishesActivity extends AppCompatActivity {
 
         setupActionBar();
 
-        getCategoriesFromDB();
+        int restaurant = getIntent().getIntExtra("restaurant", 0);
+        Log.d("MyLogChoiceOfDishes", "Ресторан - " + restaurant);
+
+        getCategoriesFromDB(restaurant);
 
         mCountCalories = findViewById(R.id.countCaloriesTextView);
         mCountProteins = findViewById(R.id.countProteinsTextView);
@@ -132,7 +135,7 @@ public class ChoiceOfDishesActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void getCategoriesFromDB() {
+    private void getCategoriesFromDB(int restaurant) {
         DatabaseCreateHelper databaseCreateHelper = new DatabaseCreateHelper(getApplicationContext());
         //SQLiteDatabase db;
         try {
@@ -146,12 +149,16 @@ public class ChoiceOfDishesActivity extends AppCompatActivity {
                 DishDBHelper.COLUMN_CATEGORY
         };
 
+        String selection = DishDBHelper.COLUMN_RESTAURANT + " = ?";
+        String restaurantString = "" + restaurant;
+        String[] selectionArgs = {restaurantString};
+
         Cursor cursor = db.query(
                 true,
                 DishDBHelper.TABLE,
                 projection,
-                null,
-                null,
+                selection,
+                selectionArgs,
                 DishDBHelper.COLUMN_CATEGORY,
                 null,
                 null,

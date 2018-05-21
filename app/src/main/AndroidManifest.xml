@@ -28,10 +28,15 @@
             android:name=".ChoiceOfDishesActivity"
             android:label="@string/title_activity_choice_of_dishes"
             android:screenOrientation="portrait" />
-        <activity android:name=".UserActivity" />
         <activity
             android:name=".ListDishesActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".SelectDesiredMealActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".UserProfileActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

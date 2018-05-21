@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_settings) {
-            Intent intent = new Intent(this, UserPreferencesActivity.class);
+            Intent intent = new Intent(this, UserProfileActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_favorite_dishes) {
@@ -289,7 +289,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_user_settings) {
-            Intent intent = new Intent(this, UserPreferencesActivity.class);
+            Intent intent = new Intent(this, UserProfileActivity.class);
             startActivity(intent);
             return true;
         }
