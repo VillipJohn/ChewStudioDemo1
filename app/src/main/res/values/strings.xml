@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SmartChew</string>
 
+    <string name="ok">OK</string>
+
     <string name="preference_file_key">smartchewpref</string>
 
     <string name="title_activity_user_preferences">Настройки пользователя</string>
@@ -12,11 +14,16 @@
     <string name="action_settings">Settings</string>
     <string name="action_user_settings">User settings</string>
 
-    <string name="section_format">Hello World from section: %1$d</string>
-
     <string name="food_page_title">ПИТАНИЕ</string>
     <string name="statistics_page_title">СТАТИСТИКА</string>
     <string name="devices_page_title">УСТРОЙСТВА</string>
+
+    <string-array name="meals_spinner_list">
+        <item>Трёхразовое питание</item>
+        <item>Четырёхразовое питание</item>
+        <item>Пятиразовое питание</item>
+        <item>Шестиразовое питание</item>
+    </string-array>
 
     <string-array name="what_is_displayed_array">
         <item>Калории</item>
@@ -140,290 +147,290 @@
     </string-array>
 
     <string-array name="pref_age_list_titles">
-        <item>14лет</item>
-        <item>15лет</item>
-        <item>16лет</item>
-        <item>17лет</item>
-        <item>18лет</item>
-        <item>19лет</item>
-        <item>20лет</item>
-        <item>21год</item>
-        <item>22года</item>
-        <item>23года</item>
-        <item>24года</item>
-        <item>25лет</item>
-        <item>26лет</item>
-        <item>27лет</item>
-        <item>28лет</item>
-        <item>29лет</item>
-        <item>30лет</item>
-        <item>31год</item>
-        <item>32года</item>
-        <item>33года</item>
-        <item>34года</item>
-        <item>35лет</item>
-        <item>36лет</item>
-        <item>37лет</item>
-        <item>38лет</item>
-        <item>39лет</item>
-        <item>40лет</item>
-        <item>41год</item>
-        <item>42года</item>
-        <item>43года</item>
-        <item>44года</item>
-        <item>45лет</item>
-        <item>46лет</item>
-        <item>47лет</item>
-        <item>48лет</item>
-        <item>49лет</item>
-        <item>50лет</item>
-        <item>51год</item>
-        <item>52года</item>
-        <item>53года</item>
-        <item>54года</item>
-        <item>55лет</item>
-        <item>56лет</item>
-        <item>57лет</item>
-        <item>58лет</item>
-        <item>59лет</item>
-        <item>60лет</item>
-        <item>61год</item>
-        <item>62года</item>
-        <item>63года</item>
-        <item>64года</item>
-        <item>65лет</item>
-        <item>66лет</item>
-        <item>67лет</item>
-        <item>68лет</item>
-        <item>69лет</item>
-        <item>70лет</item>
-        <item>71год</item>
-        <item>72года</item>
-        <item>73года</item>
-        <item>74года</item>
-        <item>75лет</item>
-        <item>76лет</item>
-        <item>77лет</item>
-        <item>78лет</item>
-        <item>79лет</item>
-        <item>80лет</item>
-        <item>81год</item>
-        <item>82года</item>
-        <item>83года</item>
-        <item>84года</item>
-        <item>85лет</item>
-        <item>86лет</item>
-        <item>87лет</item>
-        <item>88лет</item>
-        <item>89лет</item>
-        <item>90лет</item>
+        <item>14 лет</item>
+        <item>15 лет</item>
+        <item>16 лет</item>
+        <item>17 лет</item>
+        <item>18 лет</item>
+        <item>19 лет</item>
+        <item>20 лет</item>
+        <item>21 год</item>
+        <item>22 года</item>
+        <item>23 года</item>
+        <item>24 года</item>
+        <item>25 лет</item>
+        <item>26 лет</item>
+        <item>27 лет</item>
+        <item>28 лет</item>
+        <item>29 лет</item>
+        <item>30 лет</item>
+        <item>31 год</item>
+        <item>32 года</item>
+        <item>33 года</item>
+        <item>34 года</item>
+        <item>35 лет</item>
+        <item>36 лет</item>
+        <item>37 лет</item>
+        <item>38 лет</item>
+        <item>39 лет</item>
+        <item>40 лет</item>
+        <item>41 год</item>
+        <item>42 года</item>
+        <item>43 года</item>
+        <item>44 года</item>
+        <item>45 лет</item>
+        <item>46 лет</item>
+        <item>47 лет</item>
+        <item>48 лет</item>
+        <item>49 лет</item>
+        <item>50 лет</item>
+        <item>51 год</item>
+        <item>52 года</item>
+        <item>53 года</item>
+        <item>54 года</item>
+        <item>55 лет</item>
+        <item>56 лет</item>
+        <item>57 лет</item>
+        <item>58 лет</item>
+        <item>59 лет</item>
+        <item>60 лет</item>
+        <item>61 год</item>
+        <item>62 года</item>
+        <item>63 года</item>
+        <item>64 года</item>
+        <item>65 лет</item>
+        <item>66 лет</item>
+        <item>67 лет</item>
+        <item>68 лет</item>
+        <item>69 лет</item>
+        <item>70 лет</item>
+        <item>71 год</item>
+        <item>72 года</item>
+        <item>73 года</item>
+        <item>74 года</item>
+        <item>75 лет</item>
+        <item>76 лет</item>
+        <item>77 лет</item>
+        <item>78 лет</item>
+        <item>79 лет</item>
+        <item>80 лет</item>
+        <item>81 год</item>
+        <item>82 года</item>
+        <item>83 года</item>
+        <item>84 года</item>
+        <item>85 лет</item>
+        <item>86 лет</item>
+        <item>87 лет</item>
+        <item>88 лет</item>
+        <item>89 лет</item>
+        <item>90 лет</item>
     </string-array>
 
     <string-array name="pref_age_list_values">
-        <item>14лет</item>
-        <item>15лет</item>
-        <item>16лет</item>
-        <item>17лет</item>
-        <item>18лет</item>
-        <item>19лет</item>
-        <item>20лет</item>
-        <item>21год</item>
-        <item>22года</item>
-        <item>23года</item>
-        <item>24года</item>
-        <item>25лет</item>
-        <item>26лет</item>
-        <item>27лет</item>
-        <item>28лет</item>
-        <item>29лет</item>
-        <item>30лет</item>
-        <item>31год</item>
-        <item>32года</item>
-        <item>33года</item>
-        <item>34года</item>
-        <item>35лет</item>
-        <item>36лет</item>
-        <item>37лет</item>
-        <item>38лет</item>
-        <item>39лет</item>
-        <item>40лет</item>
-        <item>41год</item>
-        <item>42года</item>
-        <item>43года</item>
-        <item>44года</item>
-        <item>45лет</item>
-        <item>46лет</item>
-        <item>47лет</item>
-        <item>48лет</item>
-        <item>49лет</item>
-        <item>50лет</item>
-        <item>51год</item>
-        <item>52года</item>
-        <item>53года</item>
-        <item>54года</item>
-        <item>55лет</item>
-        <item>56лет</item>
-        <item>57лет</item>
-        <item>58лет</item>
-        <item>59лет</item>
-        <item>60лет</item>
-        <item>61год</item>
-        <item>62года</item>
-        <item>63года</item>
-        <item>64года</item>
-        <item>65лет</item>
-        <item>66лет</item>
-        <item>67лет</item>
-        <item>68лет</item>
-        <item>69лет</item>
-        <item>70лет</item>
-        <item>71год</item>
-        <item>72года</item>
-        <item>73года</item>
-        <item>74года</item>
-        <item>75лет</item>
-        <item>76лет</item>
-        <item>77лет</item>
-        <item>78лет</item>
-        <item>79лет</item>
-        <item>80лет</item>
-        <item>81год</item>
-        <item>82года</item>
-        <item>83года</item>
-        <item>84года</item>
-        <item>85лет</item>
-        <item>86лет</item>
-        <item>87лет</item>
-        <item>88лет</item>
-        <item>89лет</item>
-        <item>90лет</item>
+        <item>14 лет</item>
+        <item>15 лет</item>
+        <item>16 лет</item>
+        <item>17 лет</item>
+        <item>18 лет</item>
+        <item>19 лет</item>
+        <item>20 лет</item>
+        <item>21 год</item>
+        <item>22 года</item>
+        <item>23 года</item>
+        <item>24 года</item>
+        <item>25 лет</item>
+        <item>26 лет</item>
+        <item>27 лет</item>
+        <item>28 лет</item>
+        <item>29 лет</item>
+        <item>30 лет</item>
+        <item>31 год</item>
+        <item>32 года</item>
+        <item>33 года</item>
+        <item>34 года</item>
+        <item>35 лет</item>
+        <item>36 лет</item>
+        <item>37 лет</item>
+        <item>38 лет</item>
+        <item>39 лет</item>
+        <item>40 лет</item>
+        <item>41 год</item>
+        <item>42 года</item>
+        <item>43 года</item>
+        <item>44 года</item>
+        <item>45 лет</item>
+        <item>46 лет</item>
+        <item>47 лет</item>
+        <item>48 лет</item>
+        <item>49 лет</item>
+        <item>50 лет</item>
+        <item>51 год</item>
+        <item>52 года</item>
+        <item>53 года</item>
+        <item>54 года</item>
+        <item>55 лет</item>
+        <item>56 лет</item>
+        <item>57 лет</item>
+        <item>58 лет</item>
+        <item>59 лет</item>
+        <item>60 лет</item>
+        <item>61 год</item>
+        <item>62 года</item>
+        <item>63 года</item>
+        <item>64 года</item>
+        <item>65 лет</item>
+        <item>66 лет</item>
+        <item>67 лет</item>
+        <item>68 лет</item>
+        <item>69 лет</item>
+        <item>70 лет</item>
+        <item>71 год</item>
+        <item>72 года</item>
+        <item>73 года</item>
+        <item>74 года</item>
+        <item>75 лет</item>
+        <item>76 лет</item>
+        <item>77 лет</item>
+        <item>78 лет</item>
+        <item>79 лет</item>
+        <item>80 лет</item>
+        <item>81 год</item>
+        <item>82 года</item>
+        <item>83 года</item>
+        <item>84 года</item>
+        <item>85 лет</item>
+        <item>86 лет</item>
+        <item>87 лет</item>
+        <item>88 лет</item>
+        <item>89 лет</item>
+        <item>90 лет</item>
     </string-array>
 
-    <string-array name="pref_stature_list_titles">
-        <item>100см</item>
-        <item>101см</item>
-        <item>102см</item>
-        <item>103см</item>
-        <item>104см</item>
-        <item>105см</item>
-        <item>106см</item>
-        <item>107см</item>
-        <item>108см</item>
-        <item>109см</item>
-        <item>110см</item>
-        <item>111см</item>
-        <item>112см</item>
-        <item>113см</item>
-        <item>114см</item>
-        <item>115см</item>
-        <item>116см</item>
-        <item>117см</item>
-        <item>118см</item>
-        <item>119см</item>
-        <item>120см</item>
-        <item>121см</item>
-        <item>122см</item>
-        <item>123см</item>
-        <item>124см</item>
-        <item>125см</item>
-        <item>126см</item>
-        <item>127см</item>
-        <item>128см</item>
-        <item>129см</item>
-        <item>130см</item>
-        <item>131см</item>
-        <item>132см</item>
-        <item>133см</item>
-        <item>134см</item>
-        <item>135см</item>
-        <item>136см</item>
-        <item>137см</item>
-        <item>138см</item>
-        <item>139см</item>
-        <item>140см</item>
-        <item>141см</item>
-        <item>142см</item>
-        <item>143см</item>
-        <item>144см</item>
-        <item>145см</item>
-        <item>146см</item>
-        <item>147см</item>
-        <item>148см</item>
-        <item>149см</item>
-        <item>150см</item>
-        <item>151см</item>
-        <item>152см</item>
-        <item>153см</item>
-        <item>154см</item>
-        <item>155см</item>
-        <item>156см</item>
-        <item>157см</item>
-        <item>158см</item>
-        <item>159см</item>
-        <item>160см</item>
-        <item>161см</item>
-        <item>162см</item>
-        <item>163см</item>
-        <item>164см</item>
-        <item>165см</item>
-        <item>166см</item>
-        <item>167см</item>
-        <item>168см</item>
-        <item>169см</item>
-        <item>170см</item>
-        <item>171см</item>
-        <item>172см</item>
-        <item>173см</item>
-        <item>174см</item>
-        <item>175см</item>
-        <item>176см</item>
-        <item>177см</item>
-        <item>178см</item>
-        <item>179см</item>
-        <item>180см</item>
-        <item>181см</item>
-        <item>182см</item>
-        <item>183см</item>
-        <item>184см</item>
-        <item>185см</item>
-        <item>186см</item>
-        <item>187см</item>
-        <item>188см</item>
-        <item>189см</item>
-        <item>190см</item>
-        <item>191см</item>
-        <item>192см</item>
-        <item>193см</item>
-        <item>194см</item>
-        <item>195см</item>
-        <item>196см</item>
-        <item>197см</item>
-        <item>198см</item>
-        <item>199см</item>
-        <item>200см</item>
-        <item>201см</item>
-        <item>202см</item>
-        <item>203см</item>
-        <item>204см</item>
-        <item>205см</item>
-        <item>206см</item>
-        <item>207см</item>
-        <item>208см</item>
-        <item>209см</item>
-        <item>210см</item>
-        <item>211см</item>
-        <item>212см</item>
-        <item>213см</item>
-        <item>214см</item>
-        <item>215см</item>
-        <item>216см</item>
-        <item>217см</item>
-        <item>218см</item>
-        <item>219см</item>
-        <item>220см</item>
+    <string-array name="pref_height_list_titles">
+        <item>100 см</item>
+        <item>101 см</item>
+        <item>102 см</item>
+        <item>103 см</item>
+        <item>104 см</item>
+        <item>105 см</item>
+        <item>106 см</item>
+        <item>107 см</item>
+        <item>108 см</item>
+        <item>109 см</item>
+        <item>110 см</item>
+        <item>111 см</item>
+        <item>112 см</item>
+        <item>113 см</item>
+        <item>114 см</item>
+        <item>115 см</item>
+        <item>116 см</item>
+        <item>117 см</item>
+        <item>118 см</item>
+        <item>119 см</item>
+        <item>120 см</item>
+        <item>121 см</item>
+        <item>122 см</item>
+        <item>123 см</item>
+        <item>124 см</item>
+        <item>125 см</item>
+        <item>126 см</item>
+        <item>127 см</item>
+        <item>128 см</item>
+        <item>129 см</item>
+        <item>130 см</item>
+        <item>131 см</item>
+        <item>132 см</item>
+        <item>133 см</item>
+        <item>134 см</item>
+        <item>135 см</item>
+        <item>136 см</item>
+        <item>137 см</item>
+        <item>138 см</item>
+        <item>139 см</item>
+        <item>140 см</item>
+        <item>141 см</item>
+        <item>142 см</item>
+        <item>143 см</item>
+        <item>144 см</item>
+        <item>145 см</item>
+        <item>146 см</item>
+        <item>147 см</item>
+        <item>148 см</item>
+        <item>149 см</item>
+        <item>150 см</item>
+        <item>151 см</item>
+        <item>152 см</item>
+        <item>153 см</item>
+        <item>154 см</item>
+        <item>155 см</item>
+        <item>156 см</item>
+        <item>157 см</item>
+        <item>158 см</item>
+        <item>159 см</item>
+        <item>160 см</item>
+        <item>161 см</item>
+        <item>162 см</item>
+        <item>163 см</item>
+        <item>164 см</item>
+        <item>165 см</item>
+        <item>166 см</item>
+        <item>167 см</item>
+        <item>168 см</item>
+        <item>169 см</item>
+        <item>170 см</item>
+        <item>171 см</item>
+        <item>172 см</item>
+        <item>173 см</item>
+        <item>174 см</item>
+        <item>175 см</item>
+        <item>176 см</item>
+        <item>177 см</item>
+        <item>178 см</item>
+        <item>179 см</item>
+        <item>180 см</item>
+        <item>181 см</item>
+        <item>182 см</item>
+        <item>183 см</item>
+        <item>184 см</item>
+        <item>185 см</item>
+        <item>186 см</item>
+        <item>187 см</item>
+        <item>188 см</item>
+        <item>189 см</item>
+        <item>190 см</item>
+        <item>191 см</item>
+        <item>192 см</item>
+        <item>193 см</item>
+        <item>194 см</item>
+        <item>195 см</item>
+        <item>196 см</item>
+        <item>197 см</item>
+        <item>198 см</item>
+        <item>199 см</item>
+        <item>200 см</item>
+        <item>201 см</item>
+        <item>202 см</item>
+        <item>203 см</item>
+        <item>204 см</item>
+        <item>205 см</item>
+        <item>206 см</item>
+        <item>207 см</item>
+        <item>208 см</item>
+        <item>209 см</item>
+        <item>210 см</item>
+        <item>211 см</item>
+        <item>212 см</item>
+        <item>213 см</item>
+        <item>214 см</item>
+        <item>215 см</item>
+        <item>216 см</item>
+        <item>217 см</item>
+        <item>218 см</item>
+        <item>219 см</item>
+        <item>220 см</item>
     </string-array>
 
-    <string-array name="pref_stature_list_values">
+    <string-array name="pref_height_list_values">
         <item>1.00</item>
         <item>1.01</item>
         <item>1.02</item>
@@ -548,127 +555,127 @@
     </string-array>
 
     <string-array name="pref_weight_list_titles">
-        <item>30кг</item>
-        <item>31кг</item>
-        <item>32кг</item>
-        <item>33кг</item>
-        <item>34кг</item>
-        <item>35кг</item>
-        <item>36кг</item>
-        <item>37кг</item>
-        <item>38кг</item>
-        <item>39кг</item>
-        <item>40кг</item>
-        <item>41кг</item>
-        <item>42кг</item>
-        <item>43кг</item>
-        <item>44кг</item>
-        <item>45кг</item>
-        <item>46кг</item>
-        <item>47кг</item>
-        <item>48кг</item>
-        <item>49кг</item>
-        <item>50кг</item>
-        <item>51кг</item>
-        <item>52кг</item>
-        <item>53кг</item>
-        <item>54кг</item>
-        <item>55кг</item>
-        <item>56кг</item>
-        <item>57кг</item>
-        <item>58кг</item>
-        <item>59кг</item>
-        <item>60кг</item>
-        <item>61кг</item>
-        <item>62кг</item>
-        <item>63кг</item>
-        <item>64кг</item>
-        <item>65кг</item>
-        <item>66кг</item>
-        <item>67кг</item>
-        <item>68кг</item>
-        <item>69кг</item>
-        <item>70кг</item>
-        <item>71кг</item>
-        <item>72кг</item>
-        <item>73кг</item>
-        <item>74кг</item>
-        <item>75кг</item>
-        <item>76кг</item>
-        <item>77кг</item>
-        <item>78кг</item>
-        <item>79кг</item>
-        <item>80кг</item>
-        <item>81кг</item>
-        <item>82кг</item>
-        <item>83кг</item>
-        <item>84кг</item>
-        <item>85кг</item>
-        <item>86кг</item>
-        <item>87кг</item>
-        <item>88кг</item>
-        <item>89кг</item>
-        <item>90кг</item>
-        <item>91кг</item>
-        <item>92кг</item>
-        <item>93кг</item>
-        <item>94кг</item>
-        <item>95кг</item>
-        <item>96кг</item>
-        <item>97кг</item>
-        <item>98кг</item>
-        <item>99кг</item>
-        <item>100кг</item>
-        <item>101кг</item>
-        <item>102кг</item>
-        <item>103кг</item>
-        <item>104кг</item>
-        <item>105кг</item>
-        <item>106кг</item>
-        <item>107кг</item>
-        <item>108кг</item>
-        <item>109кг</item>
-        <item>110кг</item>
-        <item>111кг</item>
-        <item>112кг</item>
-        <item>113кг</item>
-        <item>114кг</item>
-        <item>115кг</item>
-        <item>116кг</item>
-        <item>117кг</item>
-        <item>118кг</item>
-        <item>119кг</item>
-        <item>120кг</item>
-        <item>121кг</item>
-        <item>122кг</item>
-        <item>123кг</item>
-        <item>124кг</item>
-        <item>125кг</item>
-        <item>126кг</item>
-        <item>127кг</item>
-        <item>128кг</item>
-        <item>129кг</item>
-        <item>130кг</item>
-        <item>131кг</item>
-        <item>132кг</item>
-        <item>133кг</item>
-        <item>134кг</item>
-        <item>135кг</item>
-        <item>136кг</item>
-        <item>137кг</item>
-        <item>138кг</item>
-        <item>139кг</item>
-        <item>140кг</item>
-        <item>141кг</item>
-        <item>142кг</item>
-        <item>143кг</item>
-        <item>144кг</item>
-        <item>145кг</item>
-        <item>146кг</item>
-        <item>147кг</item>
-        <item>148кг</item>
-        <item>149кг</item>
-        <item>150кг</item>
+        <item>30 кг</item>
+        <item>31 кг</item>
+        <item>32 кг</item>
+        <item>33 кг</item>
+        <item>34 кг</item>
+        <item>35 кг</item>
+        <item>36 кг</item>
+        <item>37 кг</item>
+        <item>38 кг</item>
+        <item>39 кг</item>
+        <item>40 кг</item>
+        <item>41 кг</item>
+        <item>42 кг</item>
+        <item>43 кг</item>
+        <item>44 кг</item>
+        <item>45 кг</item>
+        <item>46 кг</item>
+        <item>47 кг</item>
+        <item>48 кг</item>
+        <item>49 кг</item>
+        <item>50 кг</item>
+        <item>51 кг</item>
+        <item>52 кг</item>
+        <item>53 кг</item>
+        <item>54 кг</item>
+        <item>55 кг</item>
+        <item>56 кг</item>
+        <item>57 кг</item>
+        <item>58 кг</item>
+        <item>59 кг</item>
+        <item>60 кг</item>
+        <item>61 кг</item>
+        <item>62 кг</item>
+        <item>63 кг</item>
+        <item>64 кг</item>
+        <item>65 кг</item>
+        <item>66 кг</item>
+        <item>67 кг</item>
+        <item>68 кг</item>
+        <item>69 кг</item>
+        <item>70 кг</item>
+        <item>71 кг</item>
+        <item>72 кг</item>
+        <item>73 кг</item>
+        <item>74 кг</item>
+        <item>75 кг</item>
+        <item>76 кг</item>
+        <item>77 кг</item>
+        <item>78 кг</item>
+        <item>79 кг</item>
+        <item>80 кг</item>
+        <item>81 кг</item>
+        <item>82 кг</item>
+        <item>83 кг</item>
+        <item>84 кг</item>
+        <item>85 кг</item>
+        <item>86 кг</item>
+        <item>87 кг</item>
+        <item>88 кг</item>
+        <item>89 кг</item>
+        <item>90 кг</item>
+        <item>91 кг</item>
+        <item>92 кг</item>
+        <item>93 кг</item>
+        <item>94 кг</item>
+        <item>95 кг</item>
+        <item>96 кг</item>
+        <item>97 кг</item>
+        <item>98 кг</item>
+        <item>99 кг</item>
+        <item>100 кг</item>
+        <item>101 кг</item>
+        <item>102 кг</item>
+        <item>103 кг</item>
+        <item>104 кг</item>
+        <item>105 кг</item>
+        <item>106 кг</item>
+        <item>107 кг</item>
+        <item>108 кг</item>
+        <item>109 кг</item>
+        <item>110 кг</item>
+        <item>111 кг</item>
+        <item>112 кг</item>
+        <item>113 кг</item>
+        <item>114 кг</item>
+        <item>115 кг</item>
+        <item>116 кг</item>
+        <item>117 кг</item>
+        <item>118 кг</item>
+        <item>119 кг</item>
+        <item>120 кг</item>
+        <item>121 кг</item>
+        <item>122 кг</item>
+        <item>123 кг</item>
+        <item>124 кг</item>
+        <item>125 кг</item>
+        <item>126 кг</item>
+        <item>127 кг</item>
+        <item>128 кг</item>
+        <item>129 кг</item>
+        <item>130 кг</item>
+        <item>131 кг</item>
+        <item>132 кг</item>
+        <item>133 кг</item>
+        <item>134 кг</item>
+        <item>135 кг</item>
+        <item>136 кг</item>
+        <item>137 кг</item>
+        <item>138 кг</item>
+        <item>139 кг</item>
+        <item>140 кг</item>
+        <item>141 кг</item>
+        <item>142 кг</item>
+        <item>143 кг</item>
+        <item>144 кг</item>
+        <item>145 кг</item>
+        <item>146 кг</item>
+        <item>147 кг</item>
+        <item>148 кг</item>
+        <item>149 кг</item>
+        <item>150 кг</item>
     </string-array>
 
     <string-array name="pref_weight_list_values">
@@ -825,27 +832,49 @@
 
     <string-array name="pref_type_of_food_titles">
         <item>Вегетарианство</item>
+        <item>Пост</item>
     </string-array>
     <string-array name="pref_type_of_food_values">
-        <item>0</item>
+        <item>Вегетарианство</item>
+        <item>Пост</item>
+    </string-array>
+
+    <string-array name="pref_type_of_food_vegetarian_titles">
+        <item>Да</item>
+        <item>Нет</item>
+    </string-array>
+    <string-array name="pref_type_of_food_vegetarian_values">
+        <item>да</item>
+        <item>нет</item>
+    </string-array>
+
+    <string-array name="pref_type_of_food_lenten_titles">
+        <item>Да</item>
+        <item>Нет</item>
+    </string-array>
+    <string-array name="pref_type_of_food_lenten_values">
+        <item>да</item>
+        <item>нет</item>
     </string-array>
 
     <string-array name="pref_compatibility_type_of_food_titles">
+        <item>Не проверять совместимость</item>
         <item>Обычная</item>
         <item>По Г.Шелтону</item>
     </string-array>
     <string-array name="pref_compatibility_type_of_food_values">
         <item>0</item>
         <item>1</item>
+        <item>2</item>
     </string-array>
 
     <string-array name="pref_characteristic_list_titles">
-        <item>Диабет II типа</item>
-        <item>Гастрит</item>
+        <item>Диабет II типа(с инсулином)</item>
+        <item>Диабет II типа(без инсулина)</item>
     </string-array>
     <string-array name="pref_characteristic_list_values">
-        <item>0</item>
         <item>1</item>
+        <item>2</item>
     </string-array>
 
     <string-array name="pref_lifestyle_list_titles">
@@ -869,9 +898,36 @@
         <item>Прибавить вес</item>
     </string-array>
     <string-array name="pref_would_you_like_list_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
+        <item>Уменьшить вес</item>
+        <item>Сохранить вес</item>
+        <item>Прибавить вес</item>
+    </string-array>
+
+
+    <string name="delete">УДАЛИТЬ</string>
+    <string name="dish_name">Название блюда</string>
+    <string name="lean_not_lean">Постное/не постное</string>
+    <string name="vegetarian_non_vegetarian">Вегетарианское/не вегетарианское</string>
+    <string name="calories">Калории</string>
+    <string name="_0">0</string>
+    <string name="proteins">Белки</string>
+    <string name="tune_meal">Настроить приём пищи</string>
+
+
+    <string-array name="spinner_list">
+        <item>Сегодня 3раз питание</item>
+        <item>Сегодня 5раз питание</item>
+        <item>Неделя</item>
+        <item>Месяц</item>
+    </string-array>
+
+    <string-array name="graph_spinner_list">
+        <item>График калории</item>
+        <item>График белки</item>
+        <item>График жиры</item>
+        <item>График углеводы</item>
+        <item>График хлебные единицы</item>
+        <item>График глюкозы</item>
     </string-array>
 
 </resources>

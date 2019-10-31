@@ -30,9 +30,9 @@
         android:title="Возраст:" />
     <ListPreference
         android:defaultValue="-1"
-        android:entries="@array/pref_stature_list_titles"
-        android:entryValues="@array/pref_stature_list_values"
-        android:key="userStaturePref"
+        android:entries="@array/pref_height_list_titles"
+        android:entryValues="@array/pref_height_list_values"
+        android:key="userHeightPref"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
         android:title="Рост:" />
@@ -60,14 +60,30 @@
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
         android:title="Метод питания:" />
-    <ListPreference
+    <!--<ListPreference
         android:defaultValue="-1"
         android:entries="@array/pref_type_of_food_titles"
         android:entryValues="@array/pref_type_of_food_values"
         android:key="userTypeOfFoodPref"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
-        android:title="Тип питания:" />
+        android:title="Тип питания:" />-->
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/pref_type_of_food_vegetarian_titles"
+        android:entryValues="@array/pref_type_of_food_vegetarian_values"
+        android:key="userTypeOfFoodVegetarianPref"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="Тип питания вегетарианство:" />
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/pref_type_of_food_lenten_titles"
+        android:entryValues="@array/pref_type_of_food_lenten_values"
+        android:key="userTypeOfFoodLentenPref"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="Тип питания пост:" />
     <ListPreference
         android:defaultValue="0"
         android:entries="@array/pref_compatibility_type_of_food_titles"
@@ -77,7 +93,7 @@
         android:positiveButtonText="@null"
         android:title="Тип совместимости блюд:" />
     <ListPreference
-        android:defaultValue="-1"
+        android:defaultValue="0"
         android:entries="@array/pref_characteristic_list_titles"
         android:entryValues="@array/pref_characteristic_list_values"
         android:key="userCharacteristicOnePref"
@@ -85,7 +101,7 @@
         android:positiveButtonText="@null"
         android:title="Особенность №1:" />
     <ListPreference
-        android:defaultValue="-1"
+        android:defaultValue="0"
         android:entries="@array/pref_characteristic_list_titles"
         android:entryValues="@array/pref_characteristic_list_values"
         android:key="userCharacteristicTwoPref"
@@ -93,7 +109,7 @@
         android:positiveButtonText="@null"
         android:title="Особенность №2:" />
     <ListPreference
-        android:defaultValue="-1"
+        android:defaultValue="0"
         android:entries="@array/pref_characteristic_list_titles"
         android:entryValues="@array/pref_characteristic_list_values"
         android:key="userCharacteristicThreePref"
@@ -101,7 +117,7 @@
         android:positiveButtonText="@null"
         android:title="Особенность №3:" />
     <ListPreference
-        android:defaultValue="-1"
+        android:defaultValue="0"
         android:entries="@array/pref_characteristic_list_titles"
         android:entryValues="@array/pref_characteristic_list_values"
         android:key="userCharacteristicFourPref"
@@ -109,7 +125,7 @@
         android:positiveButtonText="@null"
         android:title="Особенность №4:" />
     <ListPreference
-        android:defaultValue="-1"
+        android:defaultValue="0"
         android:entries="@array/pref_characteristic_list_titles"
         android:entryValues="@array/pref_characteristic_list_values"
         android:key="userCharacteristicFivePref"
@@ -130,7 +146,7 @@
          dismiss it. -->
     <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
     <ListPreference
-        android:defaultValue="-1"
+        android:defaultValue="Сохранить вес"
         android:entries="@array/pref_would_you_like_list_titles"
         android:entryValues="@array/pref_would_you_like_list_values"
         android:key="userWouldYouLikePref"
@@ -138,23 +154,33 @@
         android:positiveButtonText="@null"
         android:title="Вы бы хотели:" />
     <PreferenceCategory android:title="Следить за:">
-
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="check_box_preference_1"
+            android:key="calorieCheckBoxPref"
             android:title="Калории" />
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="check_box_preference_1"
+            android:key="proteinCheckBoxPref"
             android:title="Белки" />
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="check_box_preference_1"
+            android:key="fatCheckBoxPref"
             android:title="Жиры" />
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="check_box_preference_2"
+            android:key="carbohydrateCheckBoxPref"
             android:title="Углеводы" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="vitaminsCheckBoxPref"
+            android:title="Витамины" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="mineralsCheckBoxPref"
+            android:title="Минералы" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="breadUnitsCheckBoxPref"
+            android:title="Хлебные единицы" />
     </PreferenceCategory>
-
 </PreferenceScreen>

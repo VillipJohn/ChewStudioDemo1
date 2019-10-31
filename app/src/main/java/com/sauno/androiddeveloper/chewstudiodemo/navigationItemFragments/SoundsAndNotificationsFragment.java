@@ -5,12 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -69,11 +65,11 @@ public class SoundsAndNotificationsFragment  extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_sounds_and_notifications, container, false);
 
-        mToolbar = rootView.findViewById(R.id.soundsAndNotificationsToolbar);
+        /*mToolbar = rootView.findViewById(R.id.soundsAndNotificationsToolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(mToolbar);
         mToolbar.setTitle("Звуки и уведомления");
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);*/
 
 
 
@@ -136,7 +132,7 @@ public class SoundsAndNotificationsFragment  extends Fragment {
     }*/
 
 
-    @Override
+   /* @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_host, menu);
     }
@@ -155,6 +151,6 @@ public class SoundsAndNotificationsFragment  extends Fragment {
                 break;
         }
         return false;
-    }
+    }*/
 }
 

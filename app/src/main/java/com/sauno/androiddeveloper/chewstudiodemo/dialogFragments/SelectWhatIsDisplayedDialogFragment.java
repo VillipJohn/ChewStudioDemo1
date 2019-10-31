@@ -1,20 +1,11 @@
 package com.sauno.androiddeveloper.chewstudiodemo.dialogFragments;
 
 
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
-import android.widget.TextView;
 
-import com.sauno.androiddeveloper.chewstudiodemo.R;
-
+//ЭТОТ КЛАСС НЕ ЗАДЕЙСТВОВАН, ПОЗЖЕ БУДЕТ УДАЛЁН
 public class SelectWhatIsDisplayedDialogFragment extends DialogFragment {
-    TextView mEatenCountTextView;
+   /* TextView mEatenCountTextView;
     TextView mSpentCountTextView;
     TextView mRemainCountTextView;
 
@@ -157,53 +148,9 @@ public class SelectWhatIsDisplayedDialogFragment extends DialogFragment {
                             }
                         });
 
-
-
-               /* // добавляем переключатели
-                .setSingleChoiceItems(R.array.what_is_displayed_array, numberWhatIsDisplayed,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int item) {
-                                SharedPreferences.Editor editor = sharedPref.edit();
-                                editor.putInt("WhatIsDisplayed", item);
-                                editor.apply();
-
-                                if(item == 0) {
-                                    mEatenCountTextView.setText("К-100" + "\n" + "Б-100");
-                                    mSpentCountTextView.setText("К-100" + "\n" + "Б-100");
-                                    mRemainCountTextView.setText("К-100" + "\n" + "Б-100");
-
-                                } else if (item == 1) {
-                                    mEatenCountTextView.setText("200");
-                                    mSpentCountTextView.setText("100");
-                                    mRemainCountTextView.setText("100");
-
-                                } else  if(item == 2) {
-                                    mEatenCountTextView.setText("300");
-                                    mSpentCountTextView.setText("150");
-                                    mRemainCountTextView.setText("150");
-
-                                } else if (item == 3) {
-                                    mEatenCountTextView.setText("400");
-                                    mSpentCountTextView.setText("200");
-                                    mRemainCountTextView.setText("200");
-
-                                } else {
-                                    mEatenCountTextView.setText("---");
-                                    mSpentCountTextView.setText("---");
-                                    mRemainCountTextView.setText("---");
-                                }
-
-
-                              *//* Intent intent = new Intent(Intent.ACTION_VIEW);
-                               intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                               getActivity().startActivity(intent);*//*
-                            }
-                        })*/
         return builder.create();
     }
 
-
+*/
 
 }

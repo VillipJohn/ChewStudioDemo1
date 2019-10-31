@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.sauno.androiddeveloper.chewstudiodemo.R;
 
+//ЭТОТ КЛАСС НЕ ЗАДЕЙСТВОВАН, ПОЗЖЕ БУДЕТ УДАЛЁН
 public class SelectDesiredMealDialogFragment extends DialogFragment {
 
     @NonNull

@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sauno.androiddeveloper.chewstudiodemo">
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".DishInformationActivity"></activity>
+        <activity android:name=".AboutDishStatisticActivity" />
+        <activity android:name=".StatisticCPFCXeActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -33,10 +40,55 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".SelectDesiredMealActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".UserProfileActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutDishActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BasketActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FavoriteDishesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SetQuantityOfDishesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DishReplacementActivity"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name=".bluetooth.BluetoothLeService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".ChewingProcessActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Dish18Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ResultsOfEatingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HomeMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AddDishActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AddIngredientActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutIngredientActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StatisticHistoryActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

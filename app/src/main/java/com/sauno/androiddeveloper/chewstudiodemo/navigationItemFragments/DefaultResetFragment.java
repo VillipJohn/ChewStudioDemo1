@@ -8,9 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -135,7 +132,7 @@ public class DefaultResetFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }*/
 
-
+/*
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_host, menu);
@@ -155,5 +152,5 @@ public class DefaultResetFragment extends Fragment {
                 break;
         }
         return false;
-    }
+    }*/
 }

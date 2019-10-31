@@ -1,19 +1,51 @@
 package com.sauno.androiddeveloper.chewstudiodemo;
 
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
+import android.preference.SwitchPreference;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 public class UserPreferencesActivity extends AppCompatPreferenceActivity {
+    public static final String KEY_USER_NAME_PREF = "userNamePref";
+    public static final String KEY_USER_SEX_PREF = "userSexPref";
+    public static final String KEY_USER_AGE_PREF = "userAgePref";
+    public static final String KEY_USER_HEIGHT_PREF = "userHeightPref";
+    public static final String KEY_USER_WEIGHT_PREF = "userWeightPref";
+    public static final String KEY_USER_BLOOD_GROUPE_PREF = "userBloodGroupPref";
+    public static final String KEY_USER_METHOD_OF_NUTRITION_PREF = "userMethodOfNutritionPref";
+    //public static final String KEY_USER_TYPE_OF_FOOD_PREF = "userTypeOfFoodPref";
+    public static final String KEY_USER_TYPE_OF_FOOD_VEGETARIAN_PREF = "userTypeOfFoodVegetarianPref";
+    public static final String KEY_USER_TYPE_OF_FOOD_LENTEN_PREF = "userTypeOfFoodLentenPref";
+    public static final String KEY_USER_COMPATIBILITY_TYPE_OF_FOOD_PREF = "userCompatibilityTypeOfFoodPref";
+    public static final String KEY_USER_CHARACTERISTIC_ONE_PREF = "userCharacteristicOnePref";
+    public static final String KEY_USER_CHARACTERISTIC_TWO_PREF = "userCharacteristicTwoPref";
+    public static final String KEY_USER_CHARACTERISTIC_THREE_PREF = "userCharacteristicThreePref";
+    public static final String KEY_USER_CHARACTERISTIC_FOUR_PREF = "userCharacteristicFourPref";
+    public static final String KEY_USER_CHARACTERISTIC_FIVE_PREF = "userCharacteristicFivePref";
+    public static final String KEY_USER_LIFESTYLE_PREF = "userLifestylePref";
+    public static final String KEY_USER_WOULD_YOU_LIKE_PREF = "userWouldYouLikePref";
+    public static final String KEY_CALORIE_CHECK_BOX_PREF = "calorieCheckBoxPref";
+    public static final String KEY_PROTEIN_CHECK_BOX_PREF = "proteinCheckBoxPref";
+    public static final String KEY_FAT_CHECK_BOX_PREF = "fatCheckBoxPref";
+    public static final String KEY_CARBOHYDRATE_CHECK_BOX_PREF = "carbohydrateCheckBoxPref";
+    public static final String KEY_XE_CHECK_BOX_PREF = "xeCheckBoxPref";
+    public static final String KEY_VITAMINS_CHECK_BOX_PREF = "vitaminsCheckBoxPref";
+    public static final String KEY_MINERALS_CHECK_BOX_PREF = "mineralsCheckBoxPref";
 
     private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
         @Override
         public boolean onPreferenceChange(Preference preference, Object value) {
             String stringValue = value.toString();
+
+            Log.d("MyLogUserPreferences", "value - " + stringValue);
+
+
 
             if (preference instanceof ListPreference) {
                 // For list preferences, look up the correct display value in
@@ -27,29 +59,7 @@ public class UserPreferencesActivity extends AppCompatPreferenceActivity {
                                 ? listPreference.getEntries()[index]
                                 : null);
 
-            } /*else if (preference instanceof RingtonePreference) {
-                // For ringtone preferences, look up the correct display value
-                // using RingtoneManager.
-                if (TextUtils.isEmpty(stringValue)) {
-                    // Empty values correspond to 'silent' (no ringtone).
-                    preference.setSummary(R.string.pref_ringtone_silent);
-
-                } else {
-                    Ringtone ringtone = RingtoneManager.getRingtone(
-                            preference.getContext(), Uri.parse(stringValue));
-
-                    if (ringtone == null) {
-                        // Clear the summary if there was a lookup error.
-                        preference.setSummary(null);
-                    } else {
-                        // Set the summary to reflect the new ringtone display
-                        // name.
-                        String name = ringtone.getTitle(preference.getContext());
-                        preference.setSummary(name);
-                    }
-                }
-
-            }*/ else {
+            } else {
                 // For all other preferences, set the summary to the value's
                 // simple string representation.
                 preference.setSummary(stringValue);
@@ -65,11 +75,19 @@ public class UserPreferencesActivity extends AppCompatPreferenceActivity {
 
         // Trigger the listener immediately with the preference's
         // current value.
-        sBindPreferenceSummaryToValueListener.onPreferenceChange(preference,
-                PreferenceManager
-                        .getDefaultSharedPreferences(preference.getContext())
-                        .getString(preference.getKey(), ""));
+        if (preference instanceof SwitchPreference || preference instanceof CheckBoxPreference) {
+            sBindPreferenceSummaryToValueListener.onPreferenceChange(preference,
+                    PreferenceManager
+                            .getDefaultSharedPreferences(preference.getContext())
+                            .getBoolean(preference.getKey(), true));
+        } else {
+            sBindPreferenceSummaryToValueListener.onPreferenceChange(preference,
+                    PreferenceManager
+                            .getDefaultSharedPreferences(preference.getContext())
+                            .getString(preference.getKey(), ""));
+        }
     }
+
 
 
     @Override
@@ -77,27 +95,47 @@ public class UserPreferencesActivity extends AppCompatPreferenceActivity {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.pref_user);
 
+/*        bindService(new Intent(this, BluetoothLeService.class),                                     // Привязаться к сервису BluetoothLeService
+                mLeConnection, Context.BIND_AUTO_CREATE);*/
+
         setupActionBar();
 
-        bindPreferenceSummaryToValue(findPreference("userNamePref"));
-        bindPreferenceSummaryToValue(findPreference("userSexPref"));
-        bindPreferenceSummaryToValue(findPreference("userAgePref"));
-        bindPreferenceSummaryToValue(findPreference("userStaturePref"));
-        bindPreferenceSummaryToValue(findPreference("userWeightPref"));
-        bindPreferenceSummaryToValue(findPreference("userBloodGroupPref"));
-        bindPreferenceSummaryToValue(findPreference("userMethodOfNutritionPref"));
-        bindPreferenceSummaryToValue(findPreference("userTypeOfFoodPref"));
-        bindPreferenceSummaryToValue(findPreference("userCompatibilityTypeOfFoodPref"));
-        bindPreferenceSummaryToValue(findPreference("userCharacteristicOnePref"));
-        bindPreferenceSummaryToValue(findPreference("userCharacteristicTwoPref"));
-        bindPreferenceSummaryToValue(findPreference("userCharacteristicThreePref"));
-        bindPreferenceSummaryToValue(findPreference("userCharacteristicFourPref"));
-        bindPreferenceSummaryToValue(findPreference("userCharacteristicFivePref"));
-        bindPreferenceSummaryToValue(findPreference("userLifestylePref"));
-        bindPreferenceSummaryToValue(findPreference("userWouldYouLikePref"));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_NAME_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_SEX_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_AGE_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_HEIGHT_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_WEIGHT_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_BLOOD_GROUPE_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_METHOD_OF_NUTRITION_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_TYPE_OF_FOOD_VEGETARIAN_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_TYPE_OF_FOOD_LENTEN_PREF));
+
+        //bindPreferenceSummaryToValue(findPreference(KEY_USER_TYPE_OF_FOOD_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_COMPATIBILITY_TYPE_OF_FOOD_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_CHARACTERISTIC_ONE_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_CHARACTERISTIC_TWO_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_CHARACTERISTIC_THREE_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_CHARACTERISTIC_FOUR_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_CHARACTERISTIC_FIVE_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_LIFESTYLE_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_USER_WOULD_YOU_LIKE_PREF));
+       /* bindPreferenceSummaryToValue(findPreference(KEY_CALORIE_CHECK_BOX_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_PROTEIN_CHECK_BOX_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_FAT_CHECK_BOX_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_CARBOHYDRATE_CHECK_BOX_PREF));*/
+       /* bindPreferenceSummaryToValue(findPreference(KEY_VITAMINS_CHECK_BOX_PREF));
+        bindPreferenceSummaryToValue(findPreference(KEY_MINERALS_CHECK_BOX_PREF));*/
 
 
 
+       //CheckBoxPreference calorieCheckBoxPref = (CheckBoxPreference) findPreference(KEY_CALORIE_CHECK_BOX_PREF);
+
+
+        CheckBoxPreference vitaminsCheckBoxPref = (CheckBoxPreference) findPreference(KEY_VITAMINS_CHECK_BOX_PREF);
+        vitaminsCheckBoxPref.setEnabled(false);
+
+        CheckBoxPreference mineralsCheckBoxPref = (CheckBoxPreference) findPreference(KEY_MINERALS_CHECK_BOX_PREF);
+        mineralsCheckBoxPref.setEnabled(false);
 
 
 
@@ -119,7 +157,9 @@ public class UserPreferencesActivity extends AppCompatPreferenceActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_host, menu);
+        getMenuInflater().inflate(R.menu.menu_preferences_activity, menu);
+
+
         return true;
     }
 
@@ -130,6 +170,8 @@ public class UserPreferencesActivity extends AppCompatPreferenceActivity {
             finish();
             return true;
         }
+
+
         return super.onOptionsItemSelected(item);
     }
 }

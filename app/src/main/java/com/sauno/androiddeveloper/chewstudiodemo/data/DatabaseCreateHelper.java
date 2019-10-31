@@ -14,13 +14,11 @@ import java.io.OutputStream;
 public class DatabaseCreateHelper extends SQLiteOpenHelper {
     private static String DB_PATH; // полный путь к базе данных
     private static String DB_NAME = "maindb.db";
-    private static final int SCHEMA = 1; // версия базы данных
-    //static final String TABLE = "users"; // название таблицы в бд
-    // названия столбцов
-    //static final String COLUMN_ID = "_id";
-    //static final String COLUMN_NAME = "name";
-    //static final String COLUMN_YEAR = "year";
+    private static final int SCHEMA = 42; // версия базы данных
+
     private Context myContext;
+
+    private SQLiteDatabase mDefaultWritableDatabase = null;
 
     public DatabaseCreateHelper(Context context) {
         super(context, DB_NAME, null, SCHEMA);
@@ -33,17 +31,24 @@ public class DatabaseCreateHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion,  int newVersion) {
+        this.mDefaultWritableDatabase = db;
+
+        if(newVersion > oldVersion) {
+            myContext.deleteDatabase(DB_NAME);
+            create_db();
+        }
     }
 
     public void create_db(){
-        InputStream myInput = null;
-        OutputStream myOutput = null;
+        InputStream myInput;
+        OutputStream myOutput;
         try {
             File file = new File(DB_PATH);
             if (!file.exists()) {
-                this.getReadableDatabase();
+                this.getWritableDatabase();
                 //получаем локальную бд как поток
                 myInput = myContext.getAssets().open(DB_NAME);
                 // Путь к новой бд
@@ -72,4 +77,24 @@ public class DatabaseCreateHelper extends SQLiteOpenHelper {
 
         return SQLiteDatabase.openDatabase(DB_PATH, null, SQLiteDatabase.OPEN_READWRITE);
     }*/
+
+    /*Override
+    public SQLiteDatabase getReadableDatabase() {
+        // TODO Auto-generated method stub
+        if(isCreating && currentDB != null){
+            return currentDB;
+        }
+        return super.getReadableDatabase();
+    }*/
+
+    @Override
+    public SQLiteDatabase getWritableDatabase() {
+        final SQLiteDatabase db;
+        if(mDefaultWritableDatabase != null){
+            db = mDefaultWritableDatabase;
+        } else {
+            db = super.getWritableDatabase();
+        }
+        return db;
+    }
 }

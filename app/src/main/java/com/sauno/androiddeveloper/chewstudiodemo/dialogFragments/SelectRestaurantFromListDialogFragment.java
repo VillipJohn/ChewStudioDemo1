@@ -20,6 +20,7 @@ import com.sauno.androiddeveloper.chewstudiodemo.data.RestaurantDBHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+//Диалоговое окно выбора ресторана из списка
 public class SelectRestaurantFromListDialogFragment extends DialogFragment {
     int[] restaurantIntArray;
 
@@ -27,6 +28,8 @@ public class SelectRestaurantFromListDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final String[] restaurantStringArray = getRestaurantsFromDB();
+
+        //final String[] restaurantStringArray = {"Чайхона 1"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AppDialog);
         builder.setTitle("Выбор ресторана:")
@@ -51,6 +54,7 @@ public class SelectRestaurantFromListDialogFragment extends DialogFragment {
                                 // Нужно ещё передавать название ресторана чтоб от этого шла выборка из базы
                                 Intent intent = new Intent(getActivity(), ChoiceOfDishesActivity.class);
                                 intent.putExtra("restaurant", restaurantIntArray[item]);
+                                //intent.putExtra("restaurant", 9);
                                 startActivity(intent);
                                 dialog.cancel();
 
@@ -61,6 +65,8 @@ public class SelectRestaurantFromListDialogFragment extends DialogFragment {
         return builder.create();
     }
 
+
+    //получение списка всех ресторанов с базы данных
     private String[] getRestaurantsFromDB() {
         DatabaseCreateHelper databaseCreateHelper = new DatabaseCreateHelper(getActivity());
         SQLiteDatabase db;
@@ -94,11 +100,13 @@ public class SelectRestaurantFromListDialogFragment extends DialogFragment {
         if (cursor.moveToFirst()) {
 
             do {
-                String restaurant = cursor.getString(cursor.getColumnIndexOrThrow(RestaurantDBHelper.COLUMN_NAME));
-                restaurants.add(restaurant);
+                if(cursor.getInt(cursor.getColumnIndexOrThrow(RestaurantDBHelper.COLUMN_ID)) != 11) {
+                    String restaurant = cursor.getString(cursor.getColumnIndexOrThrow(RestaurantDBHelper.COLUMN_NAME));
+                    restaurants.add(restaurant);
 
-                int restaurantId = cursor.getInt(cursor.getColumnIndexOrThrow(RestaurantDBHelper.COLUMN_ID));
-                restaurantIds.add(restaurantId);
+                    int restaurantId = cursor.getInt(cursor.getColumnIndexOrThrow(RestaurantDBHelper.COLUMN_ID));
+                    restaurantIds.add(restaurantId);
+                }
                 //Log.i("MyLog",category + "\n");
 
             }while (cursor.moveToNext());

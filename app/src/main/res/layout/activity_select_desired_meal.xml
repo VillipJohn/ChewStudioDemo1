@@ -2,152 +2,252 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/selectDesiredMeal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectDesiredMealActivity">
+    tools:context=".SelectDesiredMealActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="28dp"
         android:text="Выберите желаемый приём пищи:"
         android:textColor="@android:color/black"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/mealsSpinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Switch
-        android:id="@+id/threeOrFiveSwitch"
+    <Spinner
+        android:id="@+id/mealsSpinner"
+        android:entries="@array/meals_spinner_list"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:text="Трёхразовое или пятиразовое питание"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayoutRadio"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <FrameLayout
+        android:id="@+id/frameLayoutRadio"
         android:layout_width="395dp"
-        android:layout_height="330dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <RadioGroup
-            android:id="@+id/fiveMealsDay"
-            android:layout_width="165dp"
-            android:layout_height="250dp"
-            android:layout_marginLeft="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout5">
-
-            <RadioButton
-                android:id="@+id/firstInFiveRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Завтрак 25%"
-                android:onClick="onRadioButtonClicked"/>
-
-            <RadioButton
-                android:id="@+id/secondInFiveRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Первый перекус 5%"
-                android:onClick="onRadioButtonClicked"/>
-
-            <RadioButton
-                android:id="@+id/thirdInFiveRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Обед 30%"
-                android:onClick="onRadioButtonClicked"/>
-
-            <RadioButton
-                android:id="@+id/fourthInFiveRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Второй перекус 5%"
-                android:onClick="onRadioButtonClicked"/>
-
-            <RadioButton
-                android:id="@+id/fifthInFiveRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Ужин 25%"
-                android:onClick="onRadioButtonClicked"/>
-
-            <RadioButton
-                android:id="@+id/sixthInFiveRadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Третий перекус 10%"
-                android:onClick="onRadioButtonClicked"/>
-        </RadioGroup>
+        app:layout_constraintBottom_toTopOf="@+id/containerCPFCXLinearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mealsSpinner">
 
         <RadioGroup
             android:id="@+id/threeMealsDay"
-            android:layout_width="165dp"
+            android:layout_width="match_parent"
             android:layout_height="191dp"
             android:layout_marginLeft="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout5">
+            app:layout_constraintBottom_toTopOf="@+id/containerCPFCXLinearLayout">
 
             <RadioButton
                 android:id="@+id/firstInThreeRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Завтрак 35%"
-                android:onClick="onRadioButtonClicked"/>
+                android:onClick="onRadioButtonClicked"
+                android:text="Завтрак 35%" />
 
             <RadioButton
                 android:id="@+id/secondInThreeRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Обед 35%"
-                android:onClick="onRadioButtonClicked"/>
+                android:onClick="onRadioButtonClicked"
+                android:text="Обед 35%" />
 
             <RadioButton
                 android:id="@+id/thirdInThreeRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Ужин 30%"
-                android:onClick="onRadioButtonClicked"/>
+                android:onClick="onRadioButtonClicked"
+                android:text="Ужин 30%" />
         </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/fourMealsDay"
+            android:layout_width="match_parent"
+            android:layout_height="191dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/containerCPFCXLinearLayout">
+
+            <RadioButton
+                android:id="@+id/firstInFourRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Завтрак 30%" />
+
+            <RadioButton
+                android:id="@+id/secondInFourRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Обед 30%" />
+
+            <RadioButton
+                android:id="@+id/thirdInFourRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Ужин 30%" />
+
+            <RadioButton
+                android:id="@+id/fourthInFourRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Перекус 10%" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/fiveMealsDay"
+            android:layout_width="match_parent"
+            android:layout_height="191dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/containerCPFCXLinearLayout">
+
+            <RadioButton
+                android:id="@+id/firstInFiveRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Завтрак 25%" />
+
+            <RadioButton
+                android:id="@+id/secondInFiveRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Первый перекус 10%" />
+
+            <RadioButton
+                android:id="@+id/thirdInFiveRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Обед 30%" />
+
+            <RadioButton
+                android:id="@+id/fourthInFiveRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Второй перекус 10%" />
+
+            <RadioButton
+                android:id="@+id/fifthInFiveRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Ужин 25%" />
+        </RadioGroup>
+
+
+        <RadioGroup
+            android:id="@+id/sixMealsDay"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/containerCPFCXLinearLayout">
+
+            <RadioButton
+                android:id="@+id/firstInSixRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Завтрак 25%" />
+
+            <RadioButton
+                android:id="@+id/secondInSixRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Первый перекус 5%" />
+
+            <RadioButton
+                android:id="@+id/thirdInSixRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Обед 30%" />
+
+            <RadioButton
+                android:id="@+id/fourthInSixRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Второй перекус 5%" />
+
+            <RadioButton
+                android:id="@+id/fifthInSixRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Ужин 25%" />
+
+            <RadioButton
+                android:id="@+id/sixthInSixRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"
+                android:text="Третий перекус 10%" />
+        </RadioGroup>
+
 
     </FrameLayout>
 
+    <Button
+        android:id="@+id/tuneMealButton"
+        style="@style/RoundedCornerButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/tune_meal"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayoutRadio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="match_parent"
+        android:id="@+id/containerCPFCXLinearLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_weight="1"
         android:baselineAligned="false"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutRadio">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -230,6 +330,27 @@
 
             <TextView
                 android:id="@+id/countCarbohydratesInSelectDesiredMealTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="0"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="ХЕ" />
+
+            <TextView
+                android:id="@+id/countXETextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
